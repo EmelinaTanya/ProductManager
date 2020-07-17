@@ -2,7 +2,7 @@ package ru.netology.domain;
 
 import java.util.Objects;
 
-public class Product {
+public abstract class Product {
     private int id;
     private String name;
     private int price;
@@ -24,6 +24,11 @@ public class Product {
     public int getPrice() {
         return price;
     }
+
+    public boolean matches(String search) {
+        return name.matches(search);
+    }
+
 
     @Override
     public boolean equals(Object o) {

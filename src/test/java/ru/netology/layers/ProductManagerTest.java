@@ -36,7 +36,6 @@ public class ProductManagerTest {
         assertArrayEquals(expected, actual);
     }
 
-
     @Test
     public void shouldSearchByPhone() {
         Product[] actual = manager.searchBy("Samsung");
@@ -60,4 +59,5 @@ public class ProductManagerTest {
 
         assertArrayEquals(expected, actual);
     }
+
 }
