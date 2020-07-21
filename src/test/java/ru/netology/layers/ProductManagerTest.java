@@ -53,6 +53,33 @@ public class ProductManagerTest {
     }
 
     @Test
+    void shouldFindExistingBookByName() {
+        String nameBook = "Краткая история времени";
+        Product[] expected = new Product[]{book3};
+        Product[] actual = manager.searchBy(nameBook);
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldFindExistingPhoneByName() {
+        String namePhone = "8S";
+        Product[] expected = new Product[]{phone2};
+        Product[] actual = manager.searchBy(namePhone);
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldFindExistingPhoneByCreator() {
+        String creatorPhone = "Samsung";
+        Product[] expected = new Product[]{phone1};
+        Product[] actual = manager.searchBy(creatorPhone);
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
     public void shouldSearchByWhenMissingProduct() {
         Product[] actual = manager.searchBy("нет такого продукта");
         Product[] expected = new Product[]{};
