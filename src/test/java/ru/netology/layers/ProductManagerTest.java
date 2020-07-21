@@ -36,7 +36,6 @@ public class ProductManagerTest {
         assertArrayEquals(expected, actual);
     }
 
-
     @Test
     public void shouldSearchByPhone() {
         Product[] actual = manager.searchBy("Samsung");
@@ -49,6 +48,33 @@ public class ProductManagerTest {
     public void shouldSearchByPhoneAndBook() {
         Product[] actual = manager.searchBy("Honor");
         Product[] expected = new Product[]{book2, phone2};
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldFindExistingBookByName() {
+        String nameBook = "Краткая история времени";
+        Product[] expected = new Product[]{book3};
+        Product[] actual = manager.searchBy(nameBook);
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldFindExistingPhoneByName() {
+        String namePhone = "8S";
+        Product[] expected = new Product[]{phone2};
+        Product[] actual = manager.searchBy(namePhone);
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldFindExistingPhoneByCreator() {
+        String creatorPhone = "Samsung";
+        Product[] expected = new Product[]{phone1};
+        Product[] actual = manager.searchBy(creatorPhone);
 
         assertArrayEquals(expected, actual);
     }
